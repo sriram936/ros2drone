@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_files("/home/sriram/Documents/projects/ros2drone/src/drone_slam" FILES "/home/sriram/Documents/projects/ros2drone/build/drone_slam/ament_cmake_core/drone_slamConfig.cmake" "/home/sriram/Documents/projects/ros2drone/build/drone_slam/ament_cmake_core/drone_slamConfig-version.cmake" "DESTINATION" "share/drone_slam/cmake")

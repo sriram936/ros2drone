@@ -1,0 +1,31 @@
+-- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_cmake_gtest: 2.8.8 (/opt/ros/lyrical/share/ament_cmake_gtest/cmake)
+-- Configuring done (0.8s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/sriram/Documents/projects/ros2drone/build/drone_description
+[100%] Built target test_drone_description
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/drone.xacro
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/macros/gimbal.xacro
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/macros/px4.xacro
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/macros/sensors.xacro
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/macros/vertical_gimbal_lidar.xacro
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/config/sensor_noise.yaml
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/ament_index/resource_index/package_run_dependencies/drone_description
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/ament_index/resource_index/parent_prefix_path/drone_description
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/environment/ament_prefix_path.sh
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/environment/ament_prefix_path.dsv
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/environment/path.sh
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/environment/path.dsv
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.bash
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.fish
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.sh
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.zsh
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.dsv
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/package.dsv
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/ament_index/resource_index/packages/drone_description
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/cmake/drone_descriptionConfig.cmake
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/cmake/drone_descriptionConfig-version.cmake
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/package.xml

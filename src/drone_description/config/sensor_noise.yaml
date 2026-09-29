@@ -1,0 +1,58 @@
+# Sensor Configuration for F450 Drone (gz-sim 10)
+
+# Downward 1D LiDAR (Altimeter) - single beam, -Z
+altimeter:
+  update_rate: 100.0
+  min_range: 0.1
+  max_range: 50.0
+  noise_stddev: 0.01
+
+# Downward Optical Flow (approximated by optical_flow_approx.py)
+optical_flow:
+  update_rate: 50.0
+  focal_length_px: 400
+  pixel_size_m: 6e-6
+  max_flow_vel: 10.0
+  noise_stddev: 0.05
+
+# Forward Camera (45 deg down)
+front_camera:
+  update_rate: 30.0
+  width: 1280
+  height: 720
+  hfov: 1.396  # 80 degrees
+  noise_stddev: 0.0
+
+# Gimbal 2D LiDAR (Hokuyo UST-10LX-like, 270 deg horizontal)
+gimbal_lidar:
+  update_rate: 40.0
+  min_angle: -2.35619  # -135 deg
+  max_angle: 2.35619   # +135 deg
+  min_range: 0.1
+  max_range: 30.0
+  noise_stddev: 0.01
+  samples: 1081
+
+# Gimbal sweep state machine (drone_control/gimbal_controller.py)
+gimbal_joint:
+  normal_sweep_deg: 45.0    # +/-45 deg normal sweep
+  focus_sweep_deg: 15.0     # +/-15 deg focus sweep
+  normal_sweep_speed: 0.5   # rad/s
+  focus_sweep_speed: 2.0    # rad/s (faster -> higher scan rate on target)
+  obstacle_threshold: 3.0   # metres - obstacle detection range
+  focus_window_deg: 15.0    # +/-15 deg around drone heading
+  focus_timeout: 2.0        # seconds to hold focus after last detection
+
+# IMU (gz-sim native)
+imu:
+  update_rate: 250.0
+
+# Multicopter motor model (per-rotor)
+multicopter:
+  motor_constant: 1.269e-05
+  moment_constant: 1.6754e-2
+  max_rot_velocity: 1000.0
+  time_constant_up: 0.0125
+  time_constant_down: 0.025
+  rotor_drag_coefficient: 8.06428e-05
+  rotor_velocity_slowdown_sim: 10

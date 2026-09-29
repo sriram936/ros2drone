@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+<!--
+  Indoor house world for autonomous quadcopter exploration.
+  Layout: 10m x 8m house, 2.5m walls, 4 rooms + hallway with doorways.
+  Contains gz-sim 10 required systems: Physics, SceneBroadcaster,
+  UserCommands, Sensors (for gpu_lidar/camera/imu), Imu.
+-->
+<sdf version="1.9">
+  <world name="house_indoor">
+    <physics name="fast" type="ignored">
+      <max_step_size>0.002</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-sensors-system"
+            name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="gz-sim-imu-system"
+            name="gz::sim::systems::Imu"/>
+
+    <!-- Lighting -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <scene>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <background>0.7 0.8 0.9 1</background>
+      <shadows>true</shadows>
+    </scene>
+
+    <!-- ======================================================== -->
+    <!-- FLOOR                                                    -->
+    <!-- ======================================================== -->
+    <model name="floor">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>14 12</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>14 12</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.6 0.55 0.5 1</ambient>
+            <diffuse>0.7 0.65 0.6 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Ceiling (drone stays below it) -->
+    <model name="ceiling">
+      <static>true</static>
+      <pose>0 0 2.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>10.3 8.3 0.1</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>10.3 8.3 0.1</size></box>
+          </geometry>
+          <material>
+            <ambient>0.9 0.9 0.9 1</ambient>
+            <diffuse>0.95 0.95 0.95 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ======================================================== -->
+    <!-- WALLS: house 10m(x) x 8m(y), height 2.5m, thickness 0.15 -->
+    <!-- Rooms:                                             -->
+    <!--   Living  : x[-5,-1]  y[-4, 0]                          -->
+    <!--   Bedroom : x[-5,-1]  y[ 0, 4]                          -->
+    <!--   Kitchen : x[ 1, 5]  y[ 0, 4]                          -->
+    <!--   Study   : x[ 1, 5]  y[-4, 0]                          -->
+    <!--   Hall    : x[-1, 1]  y[-4, 4]  (corridor, door gaps)   -->
+    <!-- Door gaps are 0.9m openings in interior walls.          -->
+    <!-- ======================================================== -->
+
+    <!-- Helper macro for wall boxes via include-style repetition -->
+    <!-- Exterior: North wall (y=+4) -->
+    <model name="wall_north">
+      <static>true</static>
+      <pose>0 4 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>10.3 0.15 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>10.3 0.15 2.5</size></box></geometry>
+          <material><ambient>0.85 0.82 0.78 1</ambient><diffuse>0.9 0.87 0.83 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Exterior: South wall (y=-4) -->
+    <model name="wall_south">
+      <static>true</static>
+      <pose>0 -4 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>10.3 0.15 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>10.3 0.15 2.5</size></box></geometry>
+          <material><ambient>0.85 0.82 0.78 1</ambient><diffuse>0.9 0.87 0.83 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Exterior: West wall (x=-5) -->
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-5 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 8.3 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.15 8.3 2.5</size></box></geometry>
+          <material><ambient>0.85 0.82 0.78 1</ambient><diffuse>0.9 0.87 0.83 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Exterior: East wall (x=+5) -->
+    <model name="wall_east">
+      <static>true</static>
+      <pose>5 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 8.3 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.15 8.3 2.5</size></box></geometry>
+          <material><ambient>0.85 0.82 0.78 1</ambient><diffuse>0.9 0.87 0.83 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Interior wall: x=-1 (Living|Hall west side) with door gap at y=[-0.45,+0.45] -->
+    <model name="wall_x_neg1_south">
+      <static>true</static>
+      <pose>-1 -2.225 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 3.55 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.15 3.55 2.5</size></box></geometry>
+          <material><ambient>0.82 0.8 0.76 1</ambient><diffuse>0.88 0.85 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_x_neg1_north">
+      <static>true</static>
+      <pose>-1 2.225 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 3.55 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.15 3.55 2.5</size></box></geometry>
+          <material><ambient>0.82 0.8 0.76 1</ambient><diffuse>0.88 0.85 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Interior wall: x=+1 (Hall east side) with door gap at y=[-0.45,+0.45] -->
+    <model name="wall_x_pos1_south">
+      <static>true</static>
+      <pose>1 -2.225 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 3.55 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.15 3.55 2.5</size></box></geometry>
+          <material><ambient>0.82 0.8 0.76 1</ambient><diffuse>0.88 0.85 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_x_pos1_north">
+      <static>true</static>
+      <pose>1 2.225 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.15 3.55 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.15 3.55 2.5</size></box></geometry>
+          <material><ambient>0.82 0.8 0.76 1</ambient><diffuse>0.88 0.85 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Interior wall: y=0 west side (Living|Bedroom) door gap x=[-3.45,-2.55] -->
+    <model name="wall_y0_west_a">
+      <static>true</static>
+      <pose>-4.225 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.55 0.15 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.55 0.15 2.5</size></box></geometry>
+          <material><ambient>0.82 0.8 0.76 1</ambient><diffuse>0.88 0.85 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_y0_west_b">
+      <static>true</static>
+      <pose>-1.775 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.55 0.15 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.55 0.15 2.5</size></box></geometry>
+          <material><ambient>0.82 0.8 0.76 1</ambient><diffuse>0.88 0.85 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Interior wall: y=0 east side (Kitchen|Study) door gap x=[2.55,3.45] -->
+    <model name="wall_y0_east_a">
+      <static>true</static>
+      <pose>1.775 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.55 0.15 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.55 0.15 2.5</size></box></geometry>
+          <material><ambient>0.82 0.8 0.76 1</ambient><diffuse>0.88 0.85 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="wall_y0_east_b">
+      <static>true</static>
+      <pose>4.225 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.55 0.15 2.5</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.55 0.15 2.5</size></box></geometry>
+          <material><ambient>0.82 0.8 0.76 1</ambient><diffuse>0.88 0.85 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ======================================================== -->
+    <!-- FURNITURE (static obstacles for lidar/planners)          -->
+    <!-- ======================================================== -->
+
+    <!-- Living room: sofa -->
+    <model name="sofa">
+      <static>true</static>
+      <pose>-4.2 -2.5 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.8 0.8 0.8</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.8 0.8 0.8</size></box></geometry>
+          <material><ambient>0.2 0.3 0.6 1</ambient><diffuse>0.25 0.35 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Living room: coffee table -->
+    <model name="coffee_table">
+      <static>true</static>
+      <pose>-2.8 -2.3 0.225 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.0 0.6 0.45</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.0 0.6 0.45</size></box></geometry>
+          <material><ambient>0.4 0.28 0.15 1</ambient><diffuse>0.45 0.32 0.18 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Bedroom: bed -->
+    <model name="bed">
+      <static>true</static>
+      <pose>-3.8 2.6 0.3 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>2.0 1.6 0.6</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>2.0 1.6 0.6</size></box></geometry>
+          <material><ambient>0.7 0.7 0.75 1</ambient><diffuse>0.75 0.75 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Bedroom: wardrobe -->
+    <model name="wardrobe">
+      <static>true</static>
+      <pose>-1.5 3.5 1.0 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.4 0.6 2.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.4 0.6 2.0</size></box></geometry>
+          <material><ambient>0.35 0.22 0.12 1</ambient><diffuse>0.4 0.26 0.15 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Kitchen: counter -->
+    <model name="kitchen_counter">
+      <static>true</static>
+      <pose>4.4 2.5 0.45 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.2 2.6 0.9</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.2 2.6 0.9</size></box></geometry>
+          <material><ambient>0.75 0.75 0.78 1</ambient><diffuse>0.8 0.8 0.83 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Kitchen: island -->
+    <model name="kitchen_island">
+      <static>true</static>
+      <pose>2.3 2.0 0.45 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.4 0.8 0.9</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.4 0.8 0.9</size></box></geometry>
+          <material><ambient>0.5 0.5 0.55 1</ambient><diffuse>0.55 0.55 0.6 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Study: desk -->
+    <model name="desk">
+      <static>true</static>
+      <pose>3.5 -2.8 0.375 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.6 0.8 0.75</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.6 0.8 0.75</size></box></geometry>
+          <material><ambient>0.45 0.32 0.18 1</ambient><diffuse>0.5 0.36 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Study: bookshelf -->
+    <model name="bookshelf">
+      <static>true</static>
+      <pose>2.0 -3.6 0.9 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.0 0.35 1.8</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.0 0.35 1.8</size></box></geometry>
+          <material><ambient>0.3 0.2 0.1 1</ambient><diffuse>0.35 0.24 0.12 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Hall: pillar (narrow obstacle) -->
+    <model name="pillar">
+      <static>true</static>
+      <pose>0.0 -2.0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><cylinder><radius>0.2</radius><length>2.5</length></cylinder></geometry></collision>
+        <visual name="v">
+          <geometry><cylinder><radius>0.2</radius><length>2.5</length></cylinder></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

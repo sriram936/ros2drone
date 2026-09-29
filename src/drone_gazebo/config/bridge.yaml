@@ -1,0 +1,90 @@
+# ros_gz_bridge configuration for the F450 drone simulation.
+# Usage: ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=<this file>
+#
+# direction: GZ_TO_ROS | ROS_TO_GZ | BIDIRECTIONAL
+
+# ---------------- Simulation clock ----------------
+- ros_topic_name: "/clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+# ---------------- Sensors (GZ -> ROS) ----------------
+# Downward 1D lidar (altimeter): gz LaserScan (1 ray) -> sensor_msgs/Range
+# (ros_gz_bridge converts automatically: min of all ray ranges)
+- ros_topic_name: "/altimeter/range"
+  gz_topic_name: "/altimeter/scan"
+  ros_type_name: "sensor_msgs/msg/Range"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+# Gimbal 2D lidar (horizontal sweep)
+- ros_topic_name: "/gimbal_lidar/scan"
+  gz_topic_name: "/gimbal_lidar/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+# Vertical 2D Lidar on 3D Gimbal (horizontal + elevation sweeps for Multi-Surface Leveling)
+- ros_topic_name: "/vertical_gimbal_lidar/scan"
+  gz_topic_name: "/vertical_gimbal_lidar/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+# Forward camera 45 deg down
+- ros_topic_name: "/camera/image_raw"
+  gz_topic_name: "/camera/image_raw"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/camera/camera_info"
+  gz_topic_name: "/camera/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS
+
+# IMU
+- ros_topic_name: "/imu/data"
+  gz_topic_name: "/imu/data"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "gz.msgs.IMU"
+  direction: GZ_TO_ROS
+
+# Joint states (gimbal yaw angle etc.)
+- ros_topic_name: "/joint_states"
+  gz_topic_name: "/joint_states"
+  ros_type_name: "sensor_msgs/msg/JointState"
+  gz_type_name: "gz.msgs.Model"
+  direction: GZ_TO_ROS
+
+# Ground-truth odometry (feeds optical flow approximation)
+- ros_topic_name: "/ground_truth/odometry"
+  gz_topic_name: "/ground_truth/odometry"
+  ros_type_name: "nav_msgs/msg/Odometry"
+  gz_type_name: "gz.msgs.Odometry"
+  direction: GZ_TO_ROS
+
+# ---------------- Actuation (ROS -> GZ) ----------------
+# Velocity controller command (body-frame twist)
+- ros_topic_name: "/drone/cmd_vel"
+  gz_topic_name: "/drone/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
+
+# Controller enable (bool)
+- ros_topic_name: "/drone/enable"
+  gz_topic_name: "/drone/enable"
+  ros_type_name: "std_msgs/msg/Bool"
+  gz_type_name: "gz.msgs.Boolean"
+  direction: ROS_TO_GZ
+
+# Gimbal joint position setpoint
+- ros_topic_name: "/gimbal_pitch_joint/cmd_pos"
+  gz_topic_name: "/gimbal_pitch_joint/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: ROS_TO_GZ

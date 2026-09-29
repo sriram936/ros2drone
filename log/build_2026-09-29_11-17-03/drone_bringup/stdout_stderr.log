@@ -1,0 +1,43 @@
+[0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+[0m
+-- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found ament_lint_auto: 0.20.6 (/opt/ros/lyrical/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Configured 'flake8' exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/sriram/Documents/projects/ros2drone/build/drone_bringup
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/launch/__pycache__/simulation.launch.cpython-312.pyc
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/launch/__pycache__/simulation.launch.cpython-314.pyc
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/launch/simulation.launch.py
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/rviz/drone.rviz
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/ament_index/resource_index/package_run_dependencies/drone_bringup
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/ament_index/resource_index/parent_prefix_path/drone_bringup
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/environment/ament_prefix_path.sh
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/environment/ament_prefix_path.dsv
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/environment/path.sh
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/environment/path.dsv
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/local_setup.bash
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/local_setup.fish
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/local_setup.sh
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/local_setup.zsh
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/local_setup.dsv
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/package.dsv
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/ament_index/resource_index/packages/drone_bringup
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/cmake/drone_bringupConfig.cmake
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/cmake/drone_bringupConfig-version.cmake
+-- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_bringup/share/drone_bringup/package.xml

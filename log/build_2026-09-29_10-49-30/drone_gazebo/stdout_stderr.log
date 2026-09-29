@@ -1,0 +1,66 @@
+CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+-- The C compiler identification is GNU 15.2.0
+-- The CXX compiler identification is GNU 15.2.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+-- Found ament_cmake_gtest: 2.8.8 (/opt/ros/lyrical/share/ament_cmake_gtest/cmake)
+-- Found GTest: /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake (found version "1.17.0")
+-- Found Threads: TRUE
+-- Configuring done (2.8s)
+-- Generating done (0.0s)
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    PYTHON_EXECUTABLE
+
+
+-- Build files have been written to: /home/sriram/Documents/projects/ros2drone/build/drone_gazebo
+[ 50%] Building CXX object CMakeFiles/test_world_loading.dir/test/test_world_loading.cpp.o
+[100%] Linking CXX executable test_world_loading
+[100%] Built target test_world_loading
+-- Install configuration: ""
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/worlds
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/worlds/sar_disaster.world
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/worlds/house_indoor.sdf
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/models
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch/spawn_drone.launch.py
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch/__pycache__
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch/__pycache__/spawn_drone.launch.cpython-312.pyc
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch/__pycache__/spawn_drone.launch.cpython-314.pyc
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/config
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/config/bridge.yaml
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/lib/drone_gazebo/optical_flow_approx.py
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/ament_index/resource_index/package_run_dependencies/drone_gazebo
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/ament_index/resource_index/parent_prefix_path/drone_gazebo
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/environment/ament_prefix_path.sh
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/environment/ament_prefix_path.dsv
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/environment/path.sh
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/environment/path.dsv
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.bash
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.fish
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.sh
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.zsh
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.dsv
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/package.dsv
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/ament_index/resource_index/packages/drone_gazebo
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/cmake/drone_gazeboConfig.cmake
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/cmake/drone_gazeboConfig-version.cmake
+-- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/package.xml

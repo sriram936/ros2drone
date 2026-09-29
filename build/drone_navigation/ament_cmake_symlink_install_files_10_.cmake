@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_files("/home/sriram/Documents/projects/ros2drone/src/drone_navigation" FILES "/home/sriram/Documents/projects/ros2drone/build/drone_navigation/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/drone_navigation")

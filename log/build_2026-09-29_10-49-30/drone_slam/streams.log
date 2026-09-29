@@ -1,0 +1,256 @@
+[0.056s] Invoking command in '/home/sriram/Documents/projects/ros2drone/build/drone_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/sriram/Documents/projects/ros2drone/src/drone_slam -DPython3_EXECUTABLE=/usr/bin/python3 -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=/home/sriram/Documents/projects/ros2drone/install/drone_slam
+[0.094s] CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.095s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.095s]   CMake.
+[0.095s] 
+[0.095s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.096s]   to tell CMake that the project requires at least <min> but has been updated
+[0.096s]   to work with policies introduced by <max> or earlier.
+[0.096s] 
+[0.096s] 
+[0.324s] -- The C compiler identification is GNU 15.2.0
+[0.776s] -- The CXX compiler identification is GNU 15.2.0
+[0.809s] -- Detecting C compiler ABI info
+[1.264s] -- Detecting C compiler ABI info - done
+[1.334s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.334s] -- Detecting C compile features
+[1.335s] -- Detecting C compile features - done
+[1.403s] -- Detecting CXX compiler ABI info
+[1.768s] -- Detecting CXX compiler ABI info - done
+[1.853s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.854s] -- Detecting CXX compile features
+[1.855s] -- Detecting CXX compile features - done
+[1.916s] -- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+[3.136s] -- Found rosidl_default_generators: 1.8.1 (/opt/ros/lyrical/share/rosidl_default_generators/cmake)
+[3.191s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.447s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.683s] -- Found rosidl_adapter: 5.2.1 (/opt/ros/lyrical/share/rosidl_adapter/cmake)
+[3.683s] -- Found std_msgs: 5.9.3 (/opt/ros/lyrical/share/std_msgs/cmake)
+[3.847s] -- Found geometry_msgs: 5.9.3 (/opt/ros/lyrical/share/geometry_msgs/cmake)
+[4.377s] -- Found Python3: /usr/bin/python3 (found version "3.14.4") found components: Interpreter
+[7.449s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[9.285s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[10.725s] -- Found Python3: /usr/bin/python3 (found version "3.14.4") found components: Interpreter Development NumPy Development.Module Development.Embed
+[10.929s] -- Found Python3: /usr/bin/python3 (found version "3.14.4") found components: Interpreter
+[10.969s] -- Configuring done (10.9s)
+[11.130s] -- Generating done (0.2s)
+[11.209s] -- Build files have been written to: /home/sriram/Documents/projects/ros2drone/build/drone_slam
+[11.238s] Invoked command in '/home/sriram/Documents/projects/ros2drone/build/drone_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/sriram/Documents/projects/ros2drone/src/drone_slam -DPython3_EXECUTABLE=/usr/bin/python3 -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=/home/sriram/Documents/projects/ros2drone/install/drone_slam
+[11.241s] Invoking command in '/home/sriram/Documents/projects/ros2drone/build/drone_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/sriram/Documents/projects/ros2drone/build/drone_slam -- -j8 -l8
+[11.400s] [  2%] Generating Rust code for ROS interfaces
+[12.599s] [  2%] Built target drone_slam__rs
+[12.660s] [  5%] Generating type hashes for ROS interfaces
+[13.698s] [  5%] Built target drone_slam__rosidl_generator_type_description
+[13.730s] [  8%] Generating C code for ROS interfaces
+[13.773s] [ 11%] Generating C++ code for ROS interfaces
+[15.146s] [ 11%] Built target drone_slam__cpp
+[15.152s] [ 14%] Building C object CMakeFiles/drone_slam__rosidl_generator_c.dir/rosidl_generator_c/drone_slam/msg/detail/elevation_grid__description.c.o
+[15.297s] [ 17%] Building C object CMakeFiles/drone_slam__rosidl_generator_c.dir/rosidl_generator_c/drone_slam/msg/detail/elevation_grid__type_support.c.o
+[15.392s] [ 20%] Building C object CMakeFiles/drone_slam__rosidl_generator_c.dir/rosidl_generator_c/drone_slam/msg/detail/elevation_grid__functions.c.o
+[15.572s] [ 22%] Linking C shared library libdrone_slam__rosidl_generator_c.so
+[15.698s] [ 22%] Built target drone_slam__rosidl_generator_c
+[15.728s] [ 25%] Generating C++ introspection for ROS interfaces
+[15.733s] [ 28%] Generating C++ type support dispatch for ROS interfaces
+[15.733s] [ 31%] Generating C type support for eProsima Fast-RTPS
+[16.867s] [ 34%] Building CXX object CMakeFiles/drone_slam__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/drone_slam/msg/elevation_grid__type_support.cpp.o
+[16.909s] [ 37%] Building CXX object CMakeFiles/drone_slam__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/drone_slam/msg/detail/elevation_grid__type_support.cpp.o
+[17.195s] [ 40%] Building CXX object CMakeFiles/drone_slam__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/drone_slam/msg/detail/elevation_grid__type_support_c.cpp.o
+[18.628s] [ 42%] Linking CXX shared library libdrone_slam__rosidl_typesupport_cpp.so
+[18.769s] [ 42%] Built target drone_slam__rosidl_typesupport_cpp
+[18.813s] [ 45%] Generating C type support dispatch for ROS interfaces
+[19.585s] [ 48%] Linking CXX shared library libdrone_slam__rosidl_typesupport_introspection_cpp.so
+[19.874s] [ 48%] Built target drone_slam__rosidl_typesupport_introspection_cpp
+[19.995s] [ 51%] Building CXX object CMakeFiles/drone_slam__rosidl_typesupport_c.dir/rosidl_typesupport_c/drone_slam/msg/elevation_grid__type_support.cpp.o
+[20.135s] [ 54%] Linking CXX shared library libdrone_slam__rosidl_typesupport_c.so
+[20.261s] [ 54%] Built target drone_slam__rosidl_typesupport_c
+[20.293s] [ 57%] Generating C introspection for ROS interfaces
+[20.727s] [ 60%] Linking CXX shared library libdrone_slam__rosidl_typesupport_fastrtps_c.so
+[21.075s] [ 60%] Built target drone_slam__rosidl_typesupport_fastrtps_c
+[21.622s] [ 62%] Building C object CMakeFiles/drone_slam__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/drone_slam/msg/detail/elevation_grid__type_support.c.o
+[21.774s] [ 65%] Linking C shared library libdrone_slam__rosidl_typesupport_introspection_c.so
+[21.871s] [ 65%] Built target drone_slam__rosidl_typesupport_introspection_c
+[21.902s] [ 68%] Generating C++ type support for eProsima Fast-RTPS
+[23.162s] [ 71%] Building CXX object CMakeFiles/drone_slam__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/drone_slam/msg/detail/dds_fastrtps/elevation_grid__type_support.cpp.o
+[26.875s] [ 74%] Linking CXX shared library libdrone_slam__rosidl_typesupport_fastrtps_cpp.so
+[27.173s] [ 74%] Built target drone_slam__rosidl_typesupport_fastrtps_cpp
+[27.237s] [ 74%] Built target drone_slam
+[27.304s] [ 77%] Generating Python code for ROS interfaces
+[29.281s] [ 77%] Built target drone_slam__py
+[29.358s] [ 80%] Building C object CMakeFiles/drone_slam__rosidl_generator_py.dir/rosidl_generator_py/drone_slam/msg/_elevation_grid_s.c.o
+[29.416s] [ 80%] Built target ament_cmake_python_sync_drone_slam
+[30.045s] [ 82%] Linking C shared library libdrone_slam__rosidl_generator_py.so
+[30.205s] [ 82%] Built target drone_slam__rosidl_generator_py
+[30.275s] [ 85%] Building C object CMakeFiles/drone_slam_s__rosidl_typesupport_c.dir/rosidl_generator_py/drone_slam/_drone_slam_s.ep.rosidl_typesupport_c.c.o
+[30.277s] [ 88%] Building C object CMakeFiles/drone_slam_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/drone_slam/_drone_slam_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[30.285s] [ 91%] Building C object CMakeFiles/drone_slam_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/drone_slam/_drone_slam_s.ep.rosidl_typesupport_introspection_c.c.o
+[30.660s] [ 94%] Linking C shared module rosidl_generator_py/drone_slam/drone_slam_s__rosidl_typesupport_fastrtps_c.so
+[30.667s] [ 97%] Linking C shared module rosidl_generator_py/drone_slam/drone_slam_s__rosidl_typesupport_c.so
+[30.689s] [100%] Linking C shared module rosidl_generator_py/drone_slam/drone_slam_s__rosidl_typesupport_introspection_c.so
+[30.779s] [100%] Built target drone_slam_s__rosidl_typesupport_c
+[30.782s] [100%] Built target drone_slam_s__rosidl_typesupport_fastrtps_c
+[30.815s] [100%] Built target drone_slam_s__rosidl_typesupport_introspection_c
+[31.402s] running egg_info
+[31.533s] creating drone_slam.egg-info
+[31.533s] writing drone_slam.egg-info/PKG-INFO
+[31.534s] writing dependency_links to drone_slam.egg-info/dependency_links.txt
+[31.536s] writing top-level names to drone_slam.egg-info/top_level.txt
+[31.536s] writing manifest file 'drone_slam.egg-info/SOURCES.txt'
+[31.926s] reading manifest file 'drone_slam.egg-info/SOURCES.txt'
+[31.929s] writing manifest file 'drone_slam.egg-info/SOURCES.txt'
+[32.059s] [100%] Built target ament_cmake_python_build_drone_slam_egg
+[32.095s] Invoked command in '/home/sriram/Documents/projects/ros2drone/build/drone_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/sriram/Documents/projects/ros2drone/build/drone_slam -- -j8 -l8
+[32.096s] Invoking command in '/home/sriram/Documents/projects/ros2drone/build/drone_slam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/sriram/Documents/projects/ros2drone/build/drone_slam
+[32.128s] -- Install configuration: ""
+[32.129s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/ament_index/resource_index/rosidl_interfaces/drone_slam
+[32.133s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/msg/ElevationGrid.json
+[32.133s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam
+[32.134s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg
+[32.134s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/rosidl_generator_c__visibility_control.h
+[32.134s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/elevation_grid.h
+[32.134s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail
+[32.135s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__functions.h
+[32.135s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__type_support.h
+[32.135s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__struct.h
+[32.137s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__functions.c
+[32.137s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__description.c
+[32.137s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__type_support.c
+[32.138s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/environment/library_path.sh
+[32.138s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/environment/library_path.dsv
+[32.139s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_generator_c.so
+[32.144s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_generator_c.so" to ""
+[32.144s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam
+[32.145s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg
+[32.145s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[32.147s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail
+[32.147s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__rosidl_typesupport_fastrtps_c.h
+[32.147s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_fastrtps_c.so
+[32.148s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_fastrtps_c.so" to ""
+[32.149s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam
+[32.150s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg
+[32.150s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[32.150s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail
+[32.150s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__type_support.c
+[32.151s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__rosidl_typesupport_introspection_c.h
+[32.151s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_introspection_c.so
+[32.152s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_introspection_c.so" to ""
+[32.152s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_c.so
+[32.152s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_c.so" to ""
+[32.152s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam
+[32.153s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg
+[32.153s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/elevation_grid.hpp
+[32.153s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/rosidl_generator_cpp__visibility_control.hpp
+[32.153s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail
+[32.153s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__traits.hpp
+[32.154s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__builder.hpp
+[32.154s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__type_support.hpp
+[32.154s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__struct.hpp
+[32.154s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam
+[32.155s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg
+[32.156s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[32.157s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail
+[32.157s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/dds_fastrtps
+[32.158s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__rosidl_typesupport_fastrtps_cpp.hpp
+[32.158s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_fastrtps_cpp.so
+[32.159s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_fastrtps_cpp.so" to ""
+[32.159s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam
+[32.160s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg
+[32.164s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail
+[32.164s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__rosidl_typesupport_introspection_cpp.hpp
+[32.165s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/include/drone_slam/drone_slam/msg/detail/elevation_grid__type_support.cpp
+[32.165s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_introspection_cpp.so
+[32.165s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_introspection_cpp.so" to ""
+[32.165s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_cpp.so
+[32.165s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_typesupport_cpp.so" to ""
+[32.166s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/environment/pythonpath.sh
+[32.166s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/environment/pythonpath.dsv
+[32.166s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/drone_slam_s__rosidl_typesupport_fastrtps_c.so
+[32.166s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/drone_slam_s__rosidl_typesupport_fastrtps_c.so" to ""
+[32.167s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/drone_slam_s__rosidl_typesupport_introspection_c.so
+[32.167s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/drone_slam_s__rosidl_typesupport_introspection_c.so" to ""
+[32.167s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/drone_slam_s__rosidl_typesupport_c.so
+[32.168s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/drone_slam_s__rosidl_typesupport_c.so" to ""
+[32.168s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_generator_py.so
+[32.169s] -- Set non-toolchain portion of runtime path of "/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/libdrone_slam__rosidl_generator_py.so" to ""
+[32.169s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/rust
+[32.170s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/rust/build.rs
+[32.170s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/rust/src
+[32.170s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/rust/src/lib.rs
+[32.171s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/rust/src/msg.rs
+[32.171s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/rust/src/msg
+[32.171s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/rust/src/msg/rmw.rs
+[32.172s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/rust/Cargo.toml
+[32.172s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/msg/ElevationGrid.idl
+[32.173s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/msg/ElevationGrid.msg
+[32.173s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/drone_slam/elevation_mapper.py
+[32.174s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/config
+[32.176s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/config/slam_params.yaml
+[32.176s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/launch
+[32.176s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/launch/__pycache__
+[32.177s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/launch/__pycache__/slam.launch.cpython-312.pyc
+[32.177s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/launch/__pycache__/slam.launch.cpython-314.pyc
+[32.177s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/launch/slam.launch.py
+[32.177s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/ament_index/resource_index/package_run_dependencies/drone_slam
+[32.178s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/ament_index/resource_index/parent_prefix_path/drone_slam
+[32.178s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/environment/ament_prefix_path.sh
+[32.179s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/environment/ament_prefix_path.dsv
+[32.180s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/environment/path.sh
+[32.180s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/environment/path.dsv
+[32.180s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/local_setup.bash
+[32.181s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/local_setup.fish
+[32.181s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/local_setup.sh
+[32.181s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/local_setup.zsh
+[32.182s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/local_setup.dsv
+[32.182s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/package.dsv
+[32.186s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/ament_index/resource_index/packages/drone_slam
+[32.186s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/export_drone_slam__rosidl_generator_cExport.cmake
+[32.186s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/export_drone_slam__rosidl_generator_cExport-noconfig.cmake
+[32.186s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/export_drone_slam__rosidl_typesupport_fastrtps_cExport.cmake
+[32.187s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/export_drone_slam__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[32.190s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slam__rosidl_typesupport_introspection_cExport.cmake
+[32.191s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slam__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[32.191s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slam__rosidl_typesupport_cExport.cmake
+[32.192s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slam__rosidl_typesupport_cExport-noconfig.cmake
+[32.192s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/export_drone_slam__rosidl_generator_cppExport.cmake
+[32.192s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/export_drone_slam__rosidl_typesupport_fastrtps_cppExport.cmake
+[32.192s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/export_drone_slam__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[32.193s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slam__rosidl_typesupport_introspection_cppExport.cmake
+[32.193s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slam__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[32.194s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slam__rosidl_typesupport_cppExport.cmake
+[32.194s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slam__rosidl_typesupport_cppExport-noconfig.cmake
+[32.194s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/export_drone_slam__rosidl_generator_pyExport.cmake
+[32.194s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/export_drone_slam__rosidl_generator_pyExport-noconfig.cmake
+[32.196s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam-0.1.0-py3.14.egg-info
+[32.197s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam-0.1.0-py3.14.egg-info/SOURCES.txt
+[32.197s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam-0.1.0-py3.14.egg-info/top_level.txt
+[32.197s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam-0.1.0-py3.14.egg-info/dependency_links.txt
+[32.198s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam-0.1.0-py3.14.egg-info/PKG-INFO
+[32.198s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam
+[32.198s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/drone_slam_s__rosidl_typesupport_fastrtps_c.so
+[32.198s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/drone_slam_s__rosidl_typesupport_c.so
+[32.199s] -- Up-to-date: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/drone_slam_s__rosidl_typesupport_introspection_c.so
+[32.209s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/py.typed
+[32.209s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/_drone_slam_s.ep.rosidl_typesupport_introspection_c.c
+[32.210s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/_drone_slam_s.ep.rosidl_typesupport_c.c
+[32.211s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/__init__.py
+[32.211s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/_drone_slam_s.ep.rosidl_typesupport_fastrtps_c.c
+[32.211s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/msg
+[32.212s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/msg/_elevation_grid.py
+[32.212s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/msg/_elevation_grid_s.c
+[32.212s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/msg/__init__.py
+[32.373s] Listing '/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam'...
+[32.373s] Compiling '/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/__init__.py'...
+[32.373s] Listing '/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/msg'...
+[32.374s] Compiling '/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/msg/__init__.py'...
+[32.374s] Compiling '/home/sriram/Documents/projects/ros2drone/install/drone_slam/lib/python3.14/site-packages/drone_slam/msg/_elevation_grid.py'...
+[32.404s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/rosidl_cmake-extras.cmake
+[32.408s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/ament_cmake_export_dependencies-extras.cmake
+[32.409s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/ament_cmake_export_include_directories-extras.cmake
+[32.409s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/ament_cmake_export_libraries-extras.cmake
+[32.409s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/ament_cmake_export_targets-extras.cmake
+[32.409s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[32.410s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[32.411s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/rosidl_cmake_aggregate_target-extras.cmake
+[32.412s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slamConfig.cmake
+[32.412s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/cmake/drone_slamConfig-version.cmake
+[32.412s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_slam/share/drone_slam/package.xml
+[32.414s] Invoked command in '/home/sriram/Documents/projects/ros2drone/build/drone_slam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/sriram/Documents/projects/ros2drone/build/drone_slam

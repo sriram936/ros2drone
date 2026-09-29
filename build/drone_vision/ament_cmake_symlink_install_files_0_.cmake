@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_files("/home/sriram/Documents/projects/ros2drone/src/drone_vision" FILES "/home/sriram/Documents/projects/ros2drone/build/drone_vision/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/drone_vision" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

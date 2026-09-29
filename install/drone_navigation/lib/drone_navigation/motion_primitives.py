@@ -1,0 +1,1 @@
+/home/sriram/Documents/projects/ros2drone/src/drone_navigation/scripts/motion_primitives.py

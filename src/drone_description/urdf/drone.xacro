@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<robot name="my_drone" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- ============================================================ -->
+  <!-- F450-STYLE QUADCOPTER WITH SAR SENSOR SUITE                 -->
+  <!-- Gazebo Sim 10 + ros_gz bridge + MAVROS-style offboard        -->
+  <!-- ============================================================ -->
+
+  <xacro:include filename="macros/sensors.xacro"/>
+  <xacro:include filename="macros/gimbal.xacro"/>
+  <xacro:include filename="macros/px4.xacro"/>
+  <xacro:include filename="macros/vertical_gimbal_lidar.xacro"/>
+
+  <!-- ============================================================ -->
+  <!-- PARAMETERS                                                    -->
+  <!-- ============================================================ -->
+  <xacro:property name="mass" value="1.2"/>
+  <xacro:property name="arm_length" value="0.225"/>
+
+  <!-- Sensor topics (gz side; bridged 1:1 to ROS) -->
+  <xacro:property name="altimeter_topic" value="/altimeter/scan"/>
+  <xacro:property name="camera_topic" value="/camera/image_raw"/>
+  <xacro:property name="gimbal_lidar_topic" value="/gimbal_lidar/scan"/>
+  <xacro:property name="imu_topic" value="/imu/data"/>
+
+  <!-- ============================================================ -->
+  <!-- BODY                                                          -->
+  <!-- ============================================================ -->
+  <xacro:px4_multicopter_base name="drone" mass="${mass}" arm_length="${arm_length}"/>
+
+  <!-- ============================================================ -->
+  <!-- SENSORS                                                       -->
+  <!-- ============================================================ -->
+
+  <!-- Downward 1D LiDAR (altimeter): single beam to -Z -->
+  <xacro:downward_1d_lidar
+    parent_link="drone_base_link"
+    name="altimeter"
+    topic="${altimeter_topic}"
+    update_rate="100"
+    min_range="0.1"
+    max_range="50.0"
+    noise_stddev="0.01"
+  />
+
+  <!-- Downward optical flow mount (velocities from approx node) -->
+  <xacro:downward_optical_flow
+    parent_link="drone_base_link"
+    name="optical_flow"
+    topic="/optical_flow/velocity"
+    update_rate="50"
+    focal_length_px="400"
+    pixel_size_m="0.000006"
+    max_flow_vel="10.0"
+    noise_stddev="0.05"
+  />
+
+  <!-- Forward camera pitched 45 deg down -->
+  <xacro:forward_camera_45deg
+    parent_link="drone_base_link"
+    name="front_camera"
+    topic="${camera_topic}"
+    update_rate="30"
+    width="1280"
+    height="720"
+    hfov="1.396"
+    noise_stddev="0.0"
+  />
+
+  <!-- IMU -->
+  <xacro:gz_imu_sensor
+    parent_link="drone_base_link"
+    name="imu_sensor"
+    topic="${imu_topic}"
+    update_rate="250"
+  />
+
+  <!-- ============================================================ -->
+  <!-- 3D GIMBAL WITH VERTICAL 2D LIDAR                            -->
+  <!-- Horizontal sweeps at multiple elevations for Multi-Surface -->
+  <!-- Leveling at 10cm x 10cm cell resolution                      -->
+  <!-- ============================================================ -->
+  <xacro:vertical_gimbal_lidar
+    parent_link="drone_base_link"
+    name="vertical_gimbal"
+    lidar_topic="/vertical_gimbal_lidar/scan"
+    lidar_update_rate="40"
+  />
+
+  <!-- ============================================================ -->
+  <!-- FLIGHT STACK (motors, velocity control, ground-truth odom)    -->
+  <!-- ============================================================ -->
+  <xacro:pixhawk4_flight_stack name="drone"/>
+
+  <!-- ============================================================ -->
+  <!-- ROS-GZ BRIDGES (config/bridge.yaml in drone_gazebo)           -->
+  <!-- /altimeter/scan      -> sensor_msgs/LaserScan                 -->
+  <!-- /gimbal_lidar/scan   -> sensor_msgs/LaserScan                 -->
+  <!-- /camera/image_raw    -> sensor_msgs/Image                     -->
+  <!-- /imu/data            -> sensor_msgs/Imu                      -->
+  <!-- /joint_states        -> sensor_msgs/JointState                -->
+  <!-- /ground_truth/odometry -> nav_msgs/Odometry                   -->
+  <!-- /drone/cmd_vel       <- geometry_msgs/Twist (body frame)      -->
+  <!-- /gimbal_pitch_joint/cmd_pos <- std_msgs/Float64                 -->
+  <!-- /vertical_gimbal_lidar/scan -> 3D point cloud data              -->
+  <!-- ============================================================ -->
+
+</robot>

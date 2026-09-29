@@ -1,0 +1,8 @@
+# CMake generated Testfile for 
+# Source directory: /home/sriram/Documents/projects/ros2drone/src/drone_gazebo
+# Build directory: /home/sriram/Documents/projects/ros2drone/build/drone_gazebo
+# 
+# This file includes the relevant testing commands required for 
+# testing this directory and lists subdirectories to be tested as well.
+add_test(test_world_loading "/usr/bin/python3" "-u" "/opt/ros/lyrical/share/ament_cmake_test/cmake/run_test.py" "/home/sriram/Documents/projects/ros2drone/build/drone_gazebo/test_results/drone_gazebo/test_world_loading.gtest.xml" "--package-name" "drone_gazebo" "--output-file" "/home/sriram/Documents/projects/ros2drone/build/drone_gazebo/ament_cmake_gtest/test_world_loading.txt" "--command" "/home/sriram/Documents/projects/ros2drone/build/drone_gazebo/test_world_loading" "--gtest_output=xml:/home/sriram/Documents/projects/ros2drone/build/drone_gazebo/test_results/drone_gazebo/test_world_loading.gtest.xml")
+set_tests_properties(test_world_loading PROPERTIES  LABELS "gtest" REQUIRED_FILES "/home/sriram/Documents/projects/ros2drone/build/drone_gazebo/test_world_loading" TIMEOUT "60" WORKING_DIRECTORY "/home/sriram/Documents/projects/ros2drone/build/drone_gazebo" _BACKTRACE_TRIPLES "/opt/ros/lyrical/share/ament_cmake_test/cmake/ament_add_test.cmake;125;add_test;/opt/ros/lyrical/share/ament_cmake_gtest/cmake/ament_add_gtest_test.cmake;95;ament_add_test;/opt/ros/lyrical/share/ament_cmake_gtest/cmake/ament_add_gtest.cmake;93;ament_add_gtest_test;/home/sriram/Documents/projects/ros2drone/src/drone_gazebo/CMakeLists.txt;32;ament_add_gtest;/home/sriram/Documents/projects/ros2drone/src/drone_gazebo/CMakeLists.txt;0;")

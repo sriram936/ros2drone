@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ============================================================ -->
+  <!-- GIMBAL MACRO - Vertical pitch sweeping joint                 -->
+  <!-- Normal sweep:  +/-45 deg @ 0.5 rad/s                         -->
+  <!-- Focus sweep:   +/-15 deg @ 2.0 rad/s (set by gimbal node)    -->
+  <!-- Position commands: ROS std_msgs/Float64 bridged to           -->
+  <!-- gz.msgs.Double on the joint position controller topic.       -->
+  <!-- ============================================================ -->
+
+  <xacro:macro name="gimbal_assembly" params="parent_link name lidar_topic lidar_update_rate">
+    <!-- Gimbal Base Link (attached to drone) -->
+    <link name="${name}_base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.035" length="0.02"/>
+        </geometry>
+        <material name="grey">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.035" length="0.02"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.05"/>
+        <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+      </inertial>
+    </link>
+
+    <joint name="${name}_base_joint" type="fixed">
+      <parent link="${parent_link}"/>
+      <child link="${name}_base_link"/>
+      <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Gimbal Pitch Joint (vertical sweep axis) -->
+    <joint name="${name}_pitch_joint" type="continuous">
+      <parent link="${parent_link}"/>
+      <child link="${name}_pitch_link"/>
+      <origin xyz="0 0 0.01" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <dynamics damping="0.01" friction="0.001"/>
+      <limit effort="1.0" velocity="4.0"/>
+    </joint>
+
+    <link name="${name}_pitch_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.03" length="0.03"/>
+        </geometry>
+        <material name="dark_grey">
+          <color rgba="0.3 0.3 0.3 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.03" length="0.03"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.03"/>
+        <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="1e-5"/>
+      </inertial>
+    </link>
+
+    <!-- 2D LiDAR mounted on gimbal pitch link, pointing forward along +X -->
+    <xacro:gimbal_2d_lidar
+      parent_link="${name}_pitch_link"
+      name="${name}_lidar"
+      topic="${lidar_topic}"
+      update_rate="${lidar_update_rate}"
+      min_angle="-2.35619"
+      max_angle="2.35619"
+      min_range="0.1"
+      max_range="30.0"
+      noise_stddev="0.01"
+    />
+
+    <!-- ================= MODEL-LEVEL GZ PLUGINS ================= -->
+
+    <!-- PID position controller for the gimbal pitch joint.
+         cmd topic: /${name}_pitch_joint/cmd_pos  (gz.msgs.Double) -->
+    <gazebo>
+      <plugin name="${name}_pitch_controller"
+              filename="gz-sim-joint-position-controller-system">
+        <joint_name>${name}_pitch_joint</joint_name>
+        <topic>/${name}_pitch_joint/cmd_pos</topic>
+        <p_gain>8.0</p_gain>
+        <i_gain>0.0</i_gain>
+        <d_gain>0.4</d_gain>
+        <i_max>1.0</i_max>
+        <i_min>-1.0</i_min>
+        <cmd_max>20.0</cmd_max>
+        <cmd_min>-20.0</cmd_min>
+        <initial_position>0.0</initial_position>
+      </plugin>
+
+      <!-- Publishes all joint states (gz.msgs.Model on /joint_states) -->
+      <plugin name="${name}_joint_state"
+              filename="gz-sim-joint-state-publisher-system">
+        <topic>/joint_states</topic>
+        <update_rate>100</update_rate>
+      </plugin>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

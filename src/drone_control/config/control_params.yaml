@@ -1,0 +1,20 @@
+# Gimbal sweep controller parameters
+gimbal_controller:
+  ros__parameters:
+    normal_sweep_deg: 45.0      # +/-45 deg normal sweep
+    focus_sweep_deg: 15.0       # +/-15 deg focus sweep
+    normal_sweep_speed: 0.5     # rad/s
+    focus_sweep_speed: 2.0      # rad/s (3-4x faster scan rate on target)
+    obstacle_threshold: 3.0     # metres
+    focus_window_deg: 15.0      # +/-15 deg around drone heading
+    focus_timeout: 2.0          # seconds to hold focus
+    control_rate: 50.0          # Hz
+    joint_yaw_name: vertical_gimbal/yaw_joint
+    joint_pitch_name: vertical_gimbal/pitch_joint
+    joint_roll_name: vertical_gimbal/roll_joint
+
+# Pixhawk offboard bridge
+pixhawk_bridge:
+  ros__parameters:
+    cruise_altitude: 1.5        # m altitude hold setpoint
+    publish_rate: 30.0          # Hz

@@ -1,0 +1,6 @@
+{
+  "package_name": "drone_slam",
+  "non_idl_tuples": [
+    "/home/sriram/Documents/projects/ros2drone/src/drone_slam:msg/ElevationGrid.msg"
+  ]
+}

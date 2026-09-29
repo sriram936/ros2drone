@@ -1,0 +1,46 @@
+[0.050s] Invoking command in '/home/sriram/Documents/projects/ros2drone/build/drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/sriram/Documents/projects/ros2drone/src/drone_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/sriram/Documents/projects/ros2drone/install/drone_description
+[0.130s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.131s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.131s]   CMake.
+[0.131s] 
+[0.131s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.131s]   to tell CMake that the project requires at least <min> but has been updated
+[0.131s]   to work with policies introduced by <max> or earlier.
+[0.131s] 
+[0.132s] [0m
+[0.162s] -- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+[0.662s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.685s] -- Found ament_cmake_gtest: 2.8.8 (/opt/ros/lyrical/share/ament_cmake_gtest/cmake)
+[0.955s] -- Configuring done (0.8s)
+[0.985s] -- Generating done (0.0s)
+[0.992s] -- Build files have been written to: /home/sriram/Documents/projects/ros2drone/build/drone_description
+[0.995s] Invoked command in '/home/sriram/Documents/projects/ros2drone/build/drone_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/sriram/Documents/projects/ros2drone/src/drone_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/sriram/Documents/projects/ros2drone/install/drone_description
+[0.996s] Invoking command in '/home/sriram/Documents/projects/ros2drone/build/drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/sriram/Documents/projects/ros2drone/build/drone_description -- -j8 -l8
+[1.113s] [100%] Built target test_drone_description
+[1.140s] Invoked command in '/home/sriram/Documents/projects/ros2drone/build/drone_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/sriram/Documents/projects/ros2drone/build/drone_description -- -j8 -l8
+[1.141s] Invoking command in '/home/sriram/Documents/projects/ros2drone/build/drone_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/sriram/Documents/projects/ros2drone/build/drone_description
+[1.156s] -- Install configuration: ""
+[1.156s] -- Execute custom install script
+[1.158s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/drone.xacro
+[1.176s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/macros/gimbal.xacro
+[1.195s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/macros/px4.xacro
+[1.213s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/macros/sensors.xacro
+[1.244s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/urdf/macros/vertical_gimbal_lidar.xacro
+[1.261s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/config/sensor_noise.yaml
+[1.282s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/ament_index/resource_index/package_run_dependencies/drone_description
+[1.309s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/ament_index/resource_index/parent_prefix_path/drone_description
+[1.330s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/environment/ament_prefix_path.sh
+[1.357s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/environment/ament_prefix_path.dsv
+[1.380s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/environment/path.sh
+[1.398s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/environment/path.dsv
+[1.422s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.bash
+[1.437s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.fish
+[1.457s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.sh
+[1.477s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.zsh
+[1.494s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/local_setup.dsv
+[1.519s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/package.dsv
+[1.531s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/ament_index/resource_index/packages/drone_description
+[1.554s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/cmake/drone_descriptionConfig.cmake
+[1.575s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/cmake/drone_descriptionConfig-version.cmake
+[1.593s] -- Symlinking: /home/sriram/Documents/projects/ros2drone/install/drone_description/share/drone_description/package.xml
+[1.632s] Invoked command in '/home/sriram/Documents/projects/ros2drone/build/drone_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PS1=\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/sriram/Documents/projects/ros2drone/build/drone_description

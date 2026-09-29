@@ -1,0 +1,47 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from drone_slam/msg/ElevationGrid.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+#include "std_msgs/msg/Header.idl"
+
+module drone_slam {
+  module msg {
+    @verbatim (language="comment", text=
+      "2.5D multi-level (elevation) grid map." "\n"
+      "One entry per cell, row-major (index = row * width + col).")
+    struct ElevationGrid {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Metric size of one cell")
+      float resolution;
+
+      @verbatim (language="comment", text=
+        "Grid dimensions (cells)")
+      uint32 width;
+
+      uint32 height;
+
+      @verbatim (language="comment", text=
+        "Pose of cell (0,0) center in the header frame")
+      geometry_msgs::msg::Pose origin;
+
+      @verbatim (language="comment", text=
+        "Cell classification (parallel arrays, row-major)" "\n"
+        "0 = unknown, 1 = free (observed, no obstacle), 2 = occupied")
+      sequence<uint8> state;
+
+      @verbatim (language="comment", text=
+        "Lowest / highest observed obstacle return per cell (metres)." "\n"
+        "NaN where no obstacle has been observed.")
+      sequence<float> z_min;
+
+      sequence<float> z_max;
+
+      @verbatim (language="comment", text=
+        "Number of obstacle hits accumulated in the cell (confidence)")
+      sequence<uint32> hits;
+    };
+  };
+};

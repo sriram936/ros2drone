@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ============================================================ -->
+  <!-- PIXHAWK4 / MULTICOPTER MACROS                                -->
+  <!-- gz-sim 10 native multicopter control chain:                  -->
+  <!--   MulticopterVelocityControl (model plugin)                  -->
+  <!--     <- cmd_vel (gz.msgs.Twist, body frame)                   -->
+  <!--     -> Actuators component (rotor speeds)                    -->
+  <!--   MulticopterMotorModel x4 (one per rotor, model plugin)     -->
+  <!--     <- Actuators component -> thrust forces on rotor links   -->
+  <!--   OdometryPublisher -> ground-truth odometry                 -->
+  <!--                                                              -->
+  <!-- MAVROS-style topics are provided by                         -->
+  <!-- drone_control/pixhawk_bridge.py which feeds gz /drone/cmd_vel -->
+  <!-- ============================================================ -->
+
+  <!-- PX4/ArduPilot-style Quadcopter Base (F450 X-frame) -->
+  <xacro:macro name="px4_multicopter_base" params="name mass arm_length">
+    <!-- Main body -->
+    <link name="${name}_base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.08" length="0.04"/>
+        </geometry>
+        <material name="white">
+          <color rgba="0.9 0.9 0.9 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.08" length="0.04"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="${mass}"/>
+        <inertia ixx="0.007" ixy="0" ixz="0" iyy="0.007" iyz="0" izz="0.012"/>
+      </inertial>
+    </link>
+
+    <!-- Four arms with motors -->
+    <xacro:macro name="px4_arm" params="prefix angle motor_z">
+      <link name="${name}_${prefix}_arm_link">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <cylinder radius="0.01" length="${arm_length}"/>
+          </geometry>
+          <material name="black">
+            <color rgba="0.1 0.1 0.1 1"/>
+          </material>
+        </visual>
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <cylinder radius="0.01" length="${arm_length}"/>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass value="0.05"/>
+          <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+        </inertial>
+      </link>
+
+      <joint name="${name}_${prefix}_arm_joint" type="fixed">
+        <parent link="${name}_base_link"/>
+        <child link="${name}_${prefix}_arm_link"/>
+        <origin xyz="0 0 0" rpy="0 0 ${angle}"/>
+      </joint>
+
+      <!-- Motor stator -->
+      <link name="${name}_${prefix}_motor_link">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <cylinder radius="0.028" length="0.03"/>
+          </geometry>
+          <material name="silver">
+            <color rgba="0.7 0.7 0.7 1"/>
+          </material>
+        </visual>
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <cylinder radius="0.028" length="0.03"/>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass value="0.055"/>
+          <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="2e-5"/>
+        </inertial>
+      </link>
+
+      <joint name="${name}_${prefix}_motor_joint" type="fixed">
+        <parent link="${name}_${prefix}_arm_link"/>
+        <child link="${name}_${prefix}_motor_link"/>
+        <origin xyz="${arm_length} 0 ${motor_z}" rpy="0 0 0"/>
+      </joint>
+
+      <!-- Propeller (spun by MulticopterMotorModel, provides thrust) -->
+      <link name="${name}_${prefix}_prop_link">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <geometry>
+            <cylinder radius="0.12" length="0.005"/>
+          </geometry>
+          <material name="transparent_black">
+            <color rgba="0.1 0.1 0.1 0.5"/>
+          </material>
+        </visual>
+        <inertial>
+          <mass value="0.005"/>
+          <inertia ixx="1e-5" ixy="0" ixz="0" iyy="1e-5" iyz="0" izz="2e-5"/>
+        </inertial>
+      </link>
+
+      <joint name="${name}_${prefix}_prop_joint" type="continuous">
+        <parent link="${name}_${prefix}_motor_link"/>
+        <child link="${name}_${prefix}_prop_link"/>
+        <origin xyz="0 0 0.015" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+      </joint>
+    </xacro:macro>
+
+    <!-- X-frame motor layout: fr/rl CCW, fl/rr CW (diagonal pairs match) -->
+    <xacro:px4_arm prefix="fr" angle="-0.785398" motor_z="0.02"/>
+    <xacro:px4_arm prefix="fl" angle="0.785398" motor_z="0.02"/>
+    <xacro:px4_arm prefix="rl" angle="2.35619" motor_z="0.02"/>
+    <xacro:px4_arm prefix="rr" angle="-2.35619" motor_z="0.02"/>
+
+    <!-- Battery compartment -->
+    <link name="${name}_battery_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.08 0.04 0.03"/>
+        </geometry>
+        <material name="dark_grey">
+          <color rgba="0.2 0.2 0.2 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.08 0.04 0.03"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.15"/>
+        <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+      </inertial>
+    </link>
+
+    <joint name="${name}_battery_joint" type="fixed">
+      <parent link="${name}_base_link"/>
+      <child link="${name}_battery_link"/>
+      <origin xyz="0 0 -0.035" rpy="0 0 0"/>
+    </joint>
+
+  </xacro:macro>
+
+  <!-- ============================================================ -->
+  <!-- FLIGHT STACK: motors + velocity controller + ground-truth odom -->
+  <!-- All model-level plugins -> <gazebo> tags without reference.   -->
+  <!-- gz topics: drone/cmd_vel, drone/enable, /model/<name>/odometry -->
+  <!-- ============================================================ -->
+  <xacro:macro name="pixhawk4_flight_stack" params="name">
+    <gazebo>
+      <!-- Velocity controller: Twist (body frame) -> rotor speeds.
+           Enabled by default; command topic: <ns>/cmd_vel -->
+      <plugin name="velocity_controller"
+              filename="gz-sim-multicopter-control-system">
+        <robotNamespace>${name}</robotNamespace>
+        <commandSubTopic>cmd_vel</commandSubTopic>
+        <enableSubTopic>enable</enableSubTopic>
+        <comLinkName>${name}_base_link</comLinkName>
+        <velocityGain>4 4 6</velocityGain>
+        <attitudeGain>4 4 2</attitudeGain>
+        <angularRateGain>0.7 0.7 0.7</angularRateGain>
+        <maximumLinearAcceleration>2 2 3</maximumLinearAcceleration>
+        <maximumLinearVelocity>3 3 3</maximumLinearVelocity>
+        <maximumAngularVelocity>2 2 2</maximumAngularVelocity>
+
+        <rotorConfiguration>
+          <rotor>
+            <jointName>${name}_fr_prop_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>${name}_fl_prop_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+          <rotor>
+            <jointName>${name}_rl_prop_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>1</direction>
+          </rotor>
+          <rotor>
+            <jointName>${name}_rr_prop_joint</jointName>
+            <forceConstant>1.269e-05</forceConstant>
+            <momentConstant>1.6754e-2</momentConstant>
+            <direction>-1</direction>
+          </rotor>
+        </rotorConfiguration>
+      </plugin>
+
+      <!-- One motor model per rotor: Actuators component -> thrust -->
+      <xacro:pixhawk4_motor name="${name}" prefix="fr" actuator="0" direction="ccw"/>
+      <xacro:pixhawk4_motor name="${name}" prefix="fl" actuator="1" direction="cw"/>
+      <xacro:pixhawk4_motor name="${name}" prefix="rl" actuator="2" direction="ccw"/>
+      <xacro:pixhawk4_motor name="${name}" prefix="rr" actuator="3" direction="cw"/>
+
+      <!-- Ground-truth odometry (used by optical-flow approximation) -->
+      <plugin name="odometry_publisher"
+              filename="gz-sim-odometry-publisher-system">
+        <odom_topic>/ground_truth/odometry</odom_topic>
+        <odom_frame>odom</odom_frame>
+        <robot_base_frame>${name}_base_link</robot_base_frame>
+        <dimensions>3</dimensions>
+        <odom_publish_frequency>100</odom_publish_frequency>
+        <gaussian_noise>0.0</gaussian_noise>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+
+  <!-- Single motor: reads Actuators component (velocity controller) -->
+  <xacro:macro name="pixhawk4_motor" params="name prefix actuator direction">
+    <plugin name="${prefix}_motor_model"
+            filename="gz-sim-multicopter-motor-model-system">
+      <robotNamespace>${name}</robotNamespace>
+      <jointName>${name}_${prefix}_prop_joint</jointName>
+      <linkName>${name}_${prefix}_prop_link</linkName>
+      <turningDirection>${direction}</turningDirection>
+      <timeConstantUp>0.0125</timeConstantUp>
+      <timeConstantDown>0.025</timeConstantDown>
+      <maxRotVelocity>1000.0</maxRotVelocity>
+      <motorConstant>1.269e-05</motorConstant>
+      <momentConstant>1.6754e-2</momentConstant>
+      <commandSubTopic>gazebo/command/motor_speed</commandSubTopic>
+      <actuator_number>${actuator}</actuator_number>
+      <rotorDragCoefficient>8.06428e-05</rotorDragCoefficient>
+      <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+      <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+      <motorType>velocity</motorType>
+    </plugin>
+  </xacro:macro>
+
+</robot>

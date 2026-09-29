@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_files("/home/sriram/Documents/projects/ros2drone/src/drone_gazebo" FILES "/home/sriram/Documents/projects/ros2drone/build/drone_gazebo/ament_cmake_core/drone_gazeboConfig.cmake" "/home/sriram/Documents/projects/ros2drone/build/drone_gazebo/ament_cmake_core/drone_gazeboConfig-version.cmake" "DESTINATION" "share/drone_gazebo/cmake")

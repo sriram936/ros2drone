@@ -1,0 +1,72 @@
+[0.028s] Invoking command in '/home/sriram/Documents/projects/ros2drone/build/drone_gazebo': AMENT_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:/opt/ros/lyrical/opt/gz_sim_vendor:/opt/ros/lyrical/opt/gz_sensors_vendor:/opt/ros/lyrical/opt/gz_gui_vendor:/opt/ros/lyrical/opt/gz_transport_vendor:/opt/ros/lyrical/opt/gz_physics_vendor:/opt/ros/lyrical/opt/sdformat_vendor:/opt/ros/lyrical/opt/gz_rendering_vendor:/opt/ros/lyrical/opt/gz_plugin_vendor:/opt/ros/lyrical/opt/gz_fuel_tools_vendor:/opt/ros/lyrical/opt/gz_msgs_vendor:/opt/ros/lyrical/opt/gz_common_vendor:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_tools_vendor:/opt/ros/lyrical/opt/gz_ogre_next_vendor:/opt/ros/lyrical/opt/gz_dartsim_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/sriram/Documents/projects/ros2drone/src/drone_gazebo -DPython3_EXECUTABLE=/usr/bin/python3 -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=/home/sriram/Documents/projects/ros2drone/install/drone_gazebo
+[0.054s] CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.054s]   Compatibility with CMake < 3.10 will be removed from a future version of
+[0.054s]   CMake.
+[0.055s] 
+[0.055s]   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+[0.055s]   to tell CMake that the project requires at least <min> but has been updated
+[0.055s]   to work with policies introduced by <max> or earlier.
+[0.055s] 
+[0.056s] 
+[0.221s] -- The C compiler identification is GNU 15.2.0
+[0.451s] -- The CXX compiler identification is GNU 15.2.0
+[0.477s] -- Detecting C compiler ABI info
+[0.731s] -- Detecting C compiler ABI info - done
+[0.789s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.789s] -- Detecting C compile features
+[0.791s] -- Detecting C compile features - done
+[0.832s] -- Detecting CXX compiler ABI info
+[1.124s] -- Detecting CXX compiler ABI info - done
+[1.180s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.181s] -- Detecting CXX compile features
+[1.185s] -- Detecting CXX compile features - done
+[1.220s] -- Found ament_cmake: 2.8.8 (/opt/ros/lyrical/share/ament_cmake/cmake)
+[2.141s] -- Found ament_cmake_gtest: 2.8.8 (/opt/ros/lyrical/share/ament_cmake_gtest/cmake)
+[2.431s] -- Found GTest: /usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake (found version "1.17.0")
+[2.450s] -- Found Threads: TRUE
+[2.827s] -- Configuring done (2.8s)
+[2.844s] -- Generating done (0.0s)
+[2.844s] CMake Warning:
+[2.845s]   Manually-specified variables were not used by the project:
+[2.845s] 
+[2.845s]     PYTHON_EXECUTABLE
+[2.845s] 
+[2.845s] 
+[2.855s] -- Build files have been written to: /home/sriram/Documents/projects/ros2drone/build/drone_gazebo
+[2.870s] Invoked command in '/home/sriram/Documents/projects/ros2drone/build/drone_gazebo' returned '0': AMENT_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:/opt/ros/lyrical/opt/gz_sim_vendor:/opt/ros/lyrical/opt/gz_sensors_vendor:/opt/ros/lyrical/opt/gz_gui_vendor:/opt/ros/lyrical/opt/gz_transport_vendor:/opt/ros/lyrical/opt/gz_physics_vendor:/opt/ros/lyrical/opt/sdformat_vendor:/opt/ros/lyrical/opt/gz_rendering_vendor:/opt/ros/lyrical/opt/gz_plugin_vendor:/opt/ros/lyrical/opt/gz_fuel_tools_vendor:/opt/ros/lyrical/opt/gz_msgs_vendor:/opt/ros/lyrical/opt/gz_common_vendor:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_tools_vendor:/opt/ros/lyrical/opt/gz_ogre_next_vendor:/opt/ros/lyrical/opt/gz_dartsim_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake /home/sriram/Documents/projects/ros2drone/src/drone_gazebo -DPython3_EXECUTABLE=/usr/bin/python3 -DPYTHON_EXECUTABLE=/usr/bin/python3 -DCMAKE_INSTALL_PREFIX=/home/sriram/Documents/projects/ros2drone/install/drone_gazebo
+[2.873s] Invoking command in '/home/sriram/Documents/projects/ros2drone/build/drone_gazebo': AMENT_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:/opt/ros/lyrical/opt/gz_sim_vendor:/opt/ros/lyrical/opt/gz_sensors_vendor:/opt/ros/lyrical/opt/gz_gui_vendor:/opt/ros/lyrical/opt/gz_transport_vendor:/opt/ros/lyrical/opt/gz_physics_vendor:/opt/ros/lyrical/opt/sdformat_vendor:/opt/ros/lyrical/opt/gz_rendering_vendor:/opt/ros/lyrical/opt/gz_plugin_vendor:/opt/ros/lyrical/opt/gz_fuel_tools_vendor:/opt/ros/lyrical/opt/gz_msgs_vendor:/opt/ros/lyrical/opt/gz_common_vendor:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_tools_vendor:/opt/ros/lyrical/opt/gz_ogre_next_vendor:/opt/ros/lyrical/opt/gz_dartsim_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/sriram/Documents/projects/ros2drone/build/drone_gazebo -- -j8 -l8
+[3.019s] [ 50%] Building CXX object CMakeFiles/test_world_loading.dir/test/test_world_loading.cpp.o
+[6.581s] [100%] Linking CXX executable test_world_loading
+[6.889s] [100%] Built target test_world_loading
+[6.924s] Invoked command in '/home/sriram/Documents/projects/ros2drone/build/drone_gazebo' returned '0': AMENT_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:/opt/ros/lyrical/opt/gz_sim_vendor:/opt/ros/lyrical/opt/gz_sensors_vendor:/opt/ros/lyrical/opt/gz_gui_vendor:/opt/ros/lyrical/opt/gz_transport_vendor:/opt/ros/lyrical/opt/gz_physics_vendor:/opt/ros/lyrical/opt/sdformat_vendor:/opt/ros/lyrical/opt/gz_rendering_vendor:/opt/ros/lyrical/opt/gz_plugin_vendor:/opt/ros/lyrical/opt/gz_fuel_tools_vendor:/opt/ros/lyrical/opt/gz_msgs_vendor:/opt/ros/lyrical/opt/gz_common_vendor:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_tools_vendor:/opt/ros/lyrical/opt/gz_ogre_next_vendor:/opt/ros/lyrical/opt/gz_dartsim_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --build /home/sriram/Documents/projects/ros2drone/build/drone_gazebo -- -j8 -l8
+[6.927s] Invoking command in '/home/sriram/Documents/projects/ros2drone/build/drone_gazebo': AMENT_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:/opt/ros/lyrical/opt/gz_sim_vendor:/opt/ros/lyrical/opt/gz_sensors_vendor:/opt/ros/lyrical/opt/gz_gui_vendor:/opt/ros/lyrical/opt/gz_transport_vendor:/opt/ros/lyrical/opt/gz_physics_vendor:/opt/ros/lyrical/opt/sdformat_vendor:/opt/ros/lyrical/opt/gz_rendering_vendor:/opt/ros/lyrical/opt/gz_plugin_vendor:/opt/ros/lyrical/opt/gz_fuel_tools_vendor:/opt/ros/lyrical/opt/gz_msgs_vendor:/opt/ros/lyrical/opt/gz_common_vendor:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_tools_vendor:/opt/ros/lyrical/opt/gz_ogre_next_vendor:/opt/ros/lyrical/opt/gz_dartsim_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/sriram/Documents/projects/ros2drone/build/drone_gazebo
+[6.950s] -- Install configuration: ""
+[6.950s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/worlds
+[6.951s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/worlds/sar_disaster.world
+[6.952s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/worlds/house_indoor.sdf
+[6.953s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/models
+[6.953s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch
+[6.953s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch/spawn_drone.launch.py
+[6.954s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch/__pycache__
+[6.954s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch/__pycache__/spawn_drone.launch.cpython-312.pyc
+[6.955s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/launch/__pycache__/spawn_drone.launch.cpython-314.pyc
+[6.955s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/config
+[6.956s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/config/bridge.yaml
+[6.957s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/lib/drone_gazebo/optical_flow_approx.py
+[6.958s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/ament_index/resource_index/package_run_dependencies/drone_gazebo
+[6.958s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/ament_index/resource_index/parent_prefix_path/drone_gazebo
+[6.959s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/environment/ament_prefix_path.sh
+[6.959s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/environment/ament_prefix_path.dsv
+[6.959s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/environment/path.sh
+[6.959s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/environment/path.dsv
+[6.960s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.bash
+[6.960s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.fish
+[6.960s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.sh
+[6.961s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.zsh
+[6.961s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/local_setup.dsv
+[6.961s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/package.dsv
+[6.961s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/ament_index/resource_index/packages/drone_gazebo
+[6.961s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/cmake/drone_gazeboConfig.cmake
+[6.962s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/cmake/drone_gazeboConfig-version.cmake
+[6.962s] -- Installing: /home/sriram/Documents/projects/ros2drone/install/drone_gazebo/share/drone_gazebo/package.xml
+[6.969s] Invoked command in '/home/sriram/Documents/projects/ros2drone/build/drone_gazebo' returned '0': AMENT_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/sriram/Documents/projects/ros2drone/install/drone_description:/opt/ros/lyrical/opt/gz_sim_vendor:/opt/ros/lyrical/opt/gz_sensors_vendor:/opt/ros/lyrical/opt/gz_gui_vendor:/opt/ros/lyrical/opt/gz_transport_vendor:/opt/ros/lyrical/opt/gz_physics_vendor:/opt/ros/lyrical/opt/sdformat_vendor:/opt/ros/lyrical/opt/gz_rendering_vendor:/opt/ros/lyrical/opt/gz_plugin_vendor:/opt/ros/lyrical/opt/gz_fuel_tools_vendor:/opt/ros/lyrical/opt/gz_msgs_vendor:/opt/ros/lyrical/opt/gz_common_vendor:/opt/ros/lyrical/opt/gz_math_vendor:/opt/ros/lyrical/opt/gz_utils_vendor:/opt/ros/lyrical/opt/gz_tools_vendor:/opt/ros/lyrical/opt/gz_ogre_next_vendor:/opt/ros/lyrical/opt/gz_dartsim_vendor:/opt/ros/lyrical/opt/gz_cmake_vendor:/opt/ros/lyrical DEBUGINFOD_URLS=https://debuginfod.ubuntu.com VIRTUAL_ENV_PROMPT=(venv-ardupilot) /usr/bin/cmake --install /home/sriram/Documents/projects/ros2drone/build/drone_gazebo

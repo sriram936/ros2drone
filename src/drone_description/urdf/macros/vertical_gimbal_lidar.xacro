@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- ============================================================ -->
+  <!-- VERTICAL 2D LIDAR ON 3D GIMBAL                              -->
+  <!-- Horizontal sweeps at multiple elevations for Multi-Surface   -->
+  <!-- Leveling. Outputs per-surface elevation data at 10cm x 10cm  -->
+  <!-- cell resolution.                                            -->
+  <!-- ============================================================ -->
+
+  <xacro:macro name="vertical_gimbal_lidar" params="parent_link name lidar_topic lidar_update_rate">
+
+    <!-- Gimbal Base Link (attached to drone) -->
+    <link name="${name}_base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.05" length="0.02"/>
+        </geometry>
+        <material name="grey">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.05" length="0.02"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="1e-4" ixy="0" ixz="0" iyy="1e-4" iyz="0" izz="1e-4"/>
+      </inertial>
+    </link>
+
+    <joint name="${name}_base_joint" type="fixed">
+      <parent link="${parent_link}"/>
+      <child link="${name}_base_link"/>
+      <origin xyz="0 0 -0.04" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Gimbal Yaw Joint (horizontal rotation) -->
+    <joint name="${name}_yaw_joint" type="continuous">
+      <parent link="${parent_link}"/>
+      <child link="${name}_yaw_link"/>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <dynamics damping="0.01" friction="0.001"/>
+      <limit effort="1.0" velocity="3.0"/>
+    </joint>
+
+    <!-- Gimbal Pitch Joint (vertical elevation control) -->
+    <joint name="${name}_pitch_joint" type="continuous">
+      <parent link="${name}_yaw_link"/>
+      <child link="${name}_pitch_link"/>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <dynamics damping="0.01" friction="0.001"/>
+      <limit effort="1.0" velocity="3.0"/>
+    </joint>
+
+    <!-- Gimbal Roll Joint (tilt for surface leveling) -->
+    <joint name="${name}_roll_joint" type="continuous">
+      <parent link="${name}_pitch_link"/>
+      <child link="${name}_roll_link"/>
+      <origin xyz="0 0 0.02" rpy="0 0 0"/>
+      <axis xyz="1 0 0"/>
+      <dynamics damping="0.01" friction="0.001"/>
+      <limit effort="1.0" velocity="3.0"/>
+    </joint>
+
+    <!-- 2D LiDAR mounted on gimbal roll link, pointing forward along +X -->
+    <!-- 1081 samples over 270deg horizontal range, 10cm effective resolution -->
+    <xacro:gimbal_2d_lidar
+      parent_link="${name}_roll_link"
+      name="${name}_lidar"
+      topic="${lidar_topic}"
+      update_rate="${lidar_update_rate}"
+      min_angle="-2.35619"
+      max_angle="2.35619"
+      min_range="0.1"
+      max_range="30.0"
+      noise_stddev="0.01"
+    />
+
+    <!-- ================= MODEL-LEVEL GZ PLUGINS ================= -->
+
+    <!-- PID position controllers for gimbal joints -->
+    <gazebo>
+      <!-- Yaw position controller -->
+      <plugin name="${name}_yaw_controller"
+              filename="gz-sim-joint-position-controller-system">
+        <joint_name>${name}_yaw_joint</joint_name>
+        <topic>/${name}_yaw_joint/cmd_pos</topic>
+        <p_gain>8.0</p_gain>
+        <i_gain>0.0</i_gain>
+        <d_gain>0.4</d_gain>
+        <i_max>1.0</i_max>
+        <i_min>-1.0</i_min>
+        <cmd_max>20.0</cmd_max>
+        <cmd_min>-20.0</cmd_min>
+        <initial_position>0.0</initial_position>
+      </plugin>
+
+      <!-- Pitch position controller -->
+      <plugin name="${name}_pitch_controller"
+              filename="gz-sim-joint-position-controller-system">
+        <joint_name>${name}_pitch_joint</joint_name>
+        <topic>/${name}_pitch_joint/cmd_pos</topic>
+        <p_gain>8.0</p_gain>
+        <i_gain>0.0</i_gain>
+        <d_gain>0.4</d_gain>
+        <i_max>1.0</i_max>
+        <i_min>-1.0</i_min>
+        <cmd_max>20.0</cmd_max>
+        <cmd_min>-20.0</cmd_min>
+        <initial_position>0.0</initial_position>
+      </plugin>
+
+      <!-- Roll position controller -->
+      <plugin name="${name}_roll_controller"
+              filename="gz-sim-joint-position-controller-system">
+        <joint_name>${name}_roll_joint</joint_name>
+        <topic>/${name}_roll_joint/cmd_pos</topic>
+        <p_gain>8.0</p_gain>
+        <i_gain>0.0</i_gain>
+        <d_gain>0.4</d_gain>
+        <i_max>1.0</i_max>
+        <i_min>-1.0</i_min>
+        <cmd_max>20.0</cmd_max>
+        <cmd_min>-20.0</cmd_min>
+        <initial_position>0.0</initial_position>
+      </plugin>
+
+      <!-- Publishes all joint states -->
+      <plugin name="${name}_joint_state"
+              filename="gz-sim-joint-state-publisher-system">
+        <topic>/joint_states</topic>
+        <update_rate>100</update_rate>
+      </plugin>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

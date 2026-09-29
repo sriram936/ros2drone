@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_files("/home/sriram/Documents/projects/ros2drone/src/drone_vision" FILES "/home/sriram/Documents/projects/ros2drone/build/drone_vision/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/drone_vision")

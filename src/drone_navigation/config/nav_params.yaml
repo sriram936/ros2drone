@@ -1,0 +1,36 @@
+frontier_explorer:
+  ros__parameters:
+    cluster_min_size: 4
+    goal_tolerance: 0.6
+    explore_period: 2.0
+
+rrt_star:
+  ros__parameters:
+    max_iterations: 1500
+    step_size: 0.5
+    goal_bias: 0.12
+    goal_tolerance: 0.4
+    rewire_radius: 1.2
+    robot_radius: 0.30
+    replan_period: 3.0
+
+dwa_planner:
+  ros__parameters:
+    max_speed: 1.5
+    min_speed: 0.0
+    max_yaw_rate: 1.2
+    max_accel: 2.0
+    max_dyaw_accel: 2.5
+    v_samples: 7
+    w_samples: 9
+    predict_time: 2.0
+    dt: 0.1
+    robot_radius: 0.30
+    obstacle_inflation: 0.45
+    w_heading: 0.6
+    w_clearance: 1.4
+    w_velocity: 0.3
+    goal_tolerance: 0.35
+    control_rate: 10.0
+    kp_v: 0.9
+    kp_w: 1.6

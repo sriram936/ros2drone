@@ -1,0 +1,5 @@
+source;share/drone_navigation/local_setup.bash
+source;share/drone_navigation/local_setup.dsv
+source;share/drone_navigation/local_setup.fish
+source;share/drone_navigation/local_setup.sh
+source;share/drone_navigation/local_setup.zsh
